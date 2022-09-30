@@ -42,9 +42,6 @@ alias \
 	e="$EDITOR" \
 	v="$EDITOR" \
 	p="pacman" \
-	xi="sudo xbps-install" \
-	xr="sudo xbps-remove -R" \
-	xq="xbps-query" \
 	z="zathura"
 
 alias \
@@ -52,3 +49,11 @@ alias \
 	magit="nvim -c MagitOnly" \
 	ref="shortcuts >/dev/null; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" \
 	weath="less -S ${XDG_DATA_HOME:-$HOME/.local/share}/weatherreport" \
+	
+# personal
+alias \
+	sdsv="systemctl list-unit-files --type=service --state=enabled" \
+	ufwstat="sudo ufw status verbose" \
+	ufwraw="sudo ufw show raw | less" \
+	ipyes="sudo iptables -S | grep ACCEPT" \
+	
