@@ -3,6 +3,8 @@
 # This gives the user a list of videos they can select and watch without a
 # browser. If you want to check a tutorial video, it makes it easy. I'll
 # add/remove videos from this list as I go on.
+# Make sure there is no whitespace in front of https else the url shows in
+# dmenu.  Use "Tab" after the last letter in the description.
 
 vidlist="
 dwm (window manager)	https://videos.lukesmith.xyz/videos/watch/f6b78db7-b368-4647-bc64-28c08fff1988
@@ -10,6 +12,7 @@ pacman (installing/managing programs)	https://videos.lukesmith.xyz/videos/watch/
 status bar	https://videos.lukesmith.xyz/videos/watch/a4d5326b-0aac-496e-bfc3-5acd5cee89f0
 sxiv (image viewer)	https://videos.lukesmith.xyz/videos/watch/ad4c8d85-90c3-4f3d-a1f3-89129e64a3c2
 st (terminal)	https://videos.lukesmith.xyz/videos/watch/efddd39d-bac5-4599-b572-177beb4ce6e8
+vimtutor (neovim/text editor)	https://videos.lukesmith.xyz/videos/watch/a9b33aee-45ba-4716-b423-3263780b9282
 i3 (old window manager)	https://videos.lukesmith.xyz/videos/watch/b861525c-7ada-40ee-a2bb-b5e1ffe0f48b
 neomutt (email)		https://videos.lukesmith.xyz/videos/watch/83122e83-52d9-4278-ae1a-7d1beeb50c8e
 ncmpcpp (music player)		https://videos.lukesmith.xyz/videos/watch/b5ac6f0d-a220-4433-88e3-e98fc791dc0a
@@ -22,5 +25,6 @@ urlview		https://videos.lukesmith.xyz/videos/watch/31a4918f-633b-4bd6-b08e-956ac
 colorschemes with pywal	https://videos.lukesmith.xyz/videos/watch/1b476003-61b2-4609-ac4b-820c3d128643
 vi mode in shell	https://videos.lukesmith.xyz/videos/watch/228aa50c-836f-456f-9f0d-a45157fe4313
 pass (password manager) 	https://videos.lukesmith.xyz/videos/watch/432fc942-5e28-4682-9beb-f5cb237a1dd6
+r basic functions	https://videos.lukesmith.xyz/videos/watch/ffcf2a62-ab7e-4abf-9c7e-6bb7a6bec349
 "
 echo "$vidlist" | grep -P "^$(echo "$vidlist" | grep "https:" | sed 's/\t.*//g' | dmenu -i -p "Learn about what? (ESC to cancel)" -l 20 | awk '{print $1}')\s" | sed 's/.*\t//' | xargs -r mpv
